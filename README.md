@@ -36,7 +36,7 @@ The `references/guidelines/` directory contains a **complete index of all 100+ A
 ## How It Works
 
 1. **Identify app type** → load the matching checklist from `references/guidelines/by-app-type/`
-2. **Pull metadata** using `asc metadata pull` (via the `asc-metadata-sync` skill)
+2. **Pull metadata** using `asc metadata pull --app "<APP_ID>" --version "<VERSION>" --dir ./metadata` (or the `asc-metadata-sync` skill)
 3. **Scan** against rejection rules in `references/rules/`
 4. **Report** findings with severity, affected files, and resolution steps
 5. **Autofix + Validate** — apply fixes, re-run affected checks
