@@ -8,6 +8,12 @@ Preflight helps developers catch potential App Store Review guideline violations
 
 This skill integrates with the [`asc` CLI](https://github.com/rudrankriyam/App-Store-Connect-CLI) (`brew install asc`) and the [ASC CLI Skills](https://github.com/rudrankriyam/app-store-connect-cli-skills) to pull and inspect App Store metadata.
 
+## Install
+
+```bash
+npx skills add truongduy2611/app-store-preflight-skills
+```
+
 ## Guideline Index (by App Type)
 
 The `references/guidelines/` directory contains a **complete index of all 100+ Apple Review Guidelines** and **10 app-type specific checklists**:
